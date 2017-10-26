@@ -19,12 +19,14 @@ class List::Node //self-referential Node class
 List::~List()
 {
     while(num_elements > 0)
+    {
       remove(1);
+	}
 }
 	
 int List::size()
  {
-    return num_elements;
+	return num_elements;
  }
 
 void List::insert(int val, int k)
@@ -91,5 +93,33 @@ void List::remove(int k)
 	num_elements--;
 	}
 	
-	//Implementations of missing operations
+int List::get(int k)
+{
+	if (k < 1 or k > num_elements +1) //if the location is invalid
+	     throw out_of_range("List::insert("+to_string(k)+") failed. (valid indices are 1 to "+to_string(num_elements+1)+")");//throw an "out_of_range" exception
+
+	Node* tmpPtr = frontPtr;
+			
+	for(int q=1;q<=k-1;q++)
+			{
+				tmpPtr = tmpPtr->link;
+			}
+			return tmpPtr->data;
+}
+
+
+void List::clear()
+{
+	while(num_elements>0)
+		remove(1);
+}
+
+void List::view()
+	{
+		for(Node* tmpPtr =frontPtr; tmpPtr != nullptr; tmpPtr = tmpPtr->link)
+		{
+					cout<<tmpPtr->data<<endl;
+		}
+	}
+	
 	

@@ -11,7 +11,7 @@ The relevant files are
 
 ## Stack ADT
 
- Stack clients have been written already. Each client does the same thing.
+Stack clients have been written already. Each client does the same thing.
 
 
 ### Vector Implementation
